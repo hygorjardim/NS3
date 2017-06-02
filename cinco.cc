@@ -61,54 +61,24 @@ main (int argc, char *argv[])
   nodes.Create (16);
 
   // A-B-C-D
-
-  NodeContainer cd; 
-  cd.Add(nodes.Get(3)); // Cliente no D node.Get(3);
-  cd.Add(nodes.Get(2));
-
-  NodeContainer cb;
-  cb.Add(nodes.Get(1));
-  cb.Add(nodes.Get(2));
-
-  NodeContainer ba;
-  ba.Add(nodes.Get(0));
-  ba.Add(nodes.Get(1));
-
-  NodeContainer aServer;
-  aServer.Add(server.Get(0));
-  aServer.Add(nodes.Get(0));
+ 
+  NodeContainer cd = NodeContainer (nodes.Get(3), nodes.Get(2));  // Cliente no D node.Get(3);
+  NodeContainer cb = NodeContainer (nodes.Get(1), nodes.Get(2));
+  NodeContainer ba = NodeContainer (nodes.Get(0), nodes.Get(1));
+  NodeContainer aServer = NodeContainer (nodes.Get(0), server.Get(0));
 
   // I-F-D
 
-  NodeContainer df;
-  df.Add(nodes.Get(3));
-  df.Add(nodes.Get(5));
+  NodeContainer df = NodeContainer (nodes.Get(3), nodes.Get(5));
+  NodeContainer fi = NodeContainer (nodes.Get(5), nodes.Get(8));
+  NodeContainer iServer = NodeContainer (nodes.Get(8), server.Get(0));
 
-  NodeContainer fi;
-  fi.Add(nodes.Get(5));
-  fi.Add(nodes.Get(8));
+  // M-J-G-D
 
-  NodeContainer iServer;
-  iServer.Add(server.Get(0));
-  iServer.Add(nodes.Get(8));  
-
-  //
-
-  NodeContainer dg;
-  dg.Add(nodes.Get(3));
-  dg.Add(nodes.Get(6));
-
-  NodeContainer gj;
-  gj.Add(nodes.Get(6));
-  gj.Add(nodes.Get(9));
-
-  NodeContainer jm;
-  jm.Add(nodes.Get(9));
-  jm.Add(nodes.Get(12));
-
-  NodeContainer mServer;
-  iServer.Add(server.Get(0));
-  mServer.Add(nodes.Get(12));
+  NodeContainer dg = NodeContainer (nodes.Get(3), nodes.Get(6));
+  NodeContainer gj = NodeContainer (nodes.Get(6), nodes.Get(9));
+  NodeContainer jm = NodeContainer (nodes.Get(9), nodes.Get(12));
+  NodeContainer mServer = NodeContainer (nodes.Get(12), server.Get(0));
 
 // ----------------------------------------------------
 
